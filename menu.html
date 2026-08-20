@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu & Online Ordering (₹ INR) — AJIT RESTAURANT</title>
+  <meta name="description" content="Explore the Indian food menu of Ajit Restaurant in INR (₹). Paneer tikka, butter chicken, dal makhani, biryanis, fresh naans, gulab jamun, and masala chai.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/payment.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AJIT RESTAURANT Homepage">
+        <span class="brand-name">AJIT RESTAURANT</span>
+        <span class="brand-tagline">Taste That Brings Everyone Together</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="menu.html" class="nav-link active">Menu</a>
+        <a href="index.html#gallerySection" class="nav-link">Gallery</a>
+        <a href="reservations.html" class="nav-link">Reservations</a>
+        <a href="track.html" class="nav-link">Track Order</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Cart Button -->
+        <button class="nav-cart-btn" aria-label="View Food Order Cart" title="View Order">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count-badge" style="display: none;">0</span>
+        </button>
+
+        <a href="reservations.html" class="btn btn-primary" style="padding: 0.75rem 1.6rem; font-size: 0.82rem;">
+          Book a Table
+        </a>
+
+        <button class="mobile-toggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
+          <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="brand-logo" style="margin-bottom: 2.5rem;">
+        <span class="brand-name">AJIT RESTAURANT</span>
+        <span class="brand-tagline">Taste That Brings Everyone Together</span>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Ajit Restaurant</a>
+        <a href="menu.html" class="nav-link">Food Menu & Order (₹)</a>
+        <a href="track.html" class="nav-link">Track Food Order</a>
+        <a href="index.html#gallerySection" class="nav-link">Photo Gallery</a>
+        <a href="reservations.html" class="nav-link">Book a Table</a>
+        <a href="contact.html" class="nav-link">Contact & Directions</a>
+      </nav>
+    </div>
+    <div class="mobile-nav-footer">
+      <button class="btn btn-secondary open-cart-btn" style="width: 100%; margin-bottom: 0.5rem;">
+        🛒 View Order Cart
+      </button>
+      <a href="reservations.html" class="btn btn-primary" style="width: 100%;">Book a Table</a>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       PAGE HERO
+       ====================================================================== -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span class="current">Food Menu (₹ INR)</span>
+      </div>
+      <span class="sub-title">Royal Indian Repertoire</span>
+      <h1>Our Food Menu</h1>
+      <p>Prepared fresh upon order with stone-ground spices, pure country ghee, and authentic clay oven techniques.</p>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       MENU CONTROLS & DISH GRID
+       ====================================================================== -->
+  <section class="section" style="background-color: var(--bg-main); padding-top: 3rem;">
+    <div class="container">
+      
+      <!-- Interactive Controls -->
+      <div class="menu-controls-wrapper reveal">
+        <!-- Live Real-Time Search -->
+        <div class="menu-search-bar">
+          <svg class="menu-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="menuSearchInput" class="menu-search-input" placeholder="Search dishes (e.g. Butter Chicken, Biryani, Dal Makhani, Paneer, Naan)..." aria-label="Search dishes">
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="menu-category-tabs" role="tablist" aria-label="Food Categories">
+          <button class="menu-tab-btn active" data-category="all" role="tab">All Items</button>
+          <button class="menu-tab-btn" data-category="starters" role="tab">Starters & Tandoor</button>
+          <button class="menu-tab-btn" data-category="mains" role="tab">Main Course</button>
+          <button class="menu-tab-btn" data-category="veg" role="tab">Vegetarian</button>
+          <button class="menu-tab-btn" data-category="nonveg" role="tab">Non-Vegetarian</button>
+          <button class="menu-tab-btn" data-category="biryani" role="tab">Rice & Biryani</button>
+          <button class="menu-tab-btn" data-category="breads" role="tab">Tandoori Breads</button>
+          <button class="menu-tab-btn" data-category="desserts" role="tab">Desserts</button>
+          <button class="menu-tab-btn" data-category="beverages" role="tab">Beverages</button>
+        </div>
+
+        <!-- Dietary Tag Filter Chips -->
+        <div class="menu-dietary-filters">
+          <span class="dietary-label">Filter Dishes:</span>
+          <div class="dietary-checkbox-group">
+            <label class="dietary-chip">
+              <input type="checkbox" value="veg">
+              <span>🌱 Pure Vegetarian</span>
+            </label>
+            <label class="dietary-chip">
+              <input type="checkbox" value="nonveg">
+              <span>🍗 Non-Vegetarian</span>
+            </label>
+            <label class="dietary-chip">
+              <input type="checkbox" value="signature">
+              <span>⭐ Chef Signature</span>
+            </label>
+            <label class="dietary-chip">
+              <input type="checkbox" value="popular">
+              <span>🔥 Best Seller</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dish Grid Container -->
+      <div id="fullMenuGrid" class="dish-grid"></div>
+
+      <!-- Royal Thali Platter Banner -->
+      <div class="reveal" style="margin-top: 5rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: clamp(2rem, 4vw, 3.5rem); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: center;">
+        <div>
+          <span class="sub-title no-after">Royal Dining Platter</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 0.75rem;">Ajit Royal Grand Thali Experience</h2>
+          <p style="margin-bottom: 1.25rem;">
+            A majestic feast with 2 Starters, 3 Rich Curries (Butter Chicken / Shahi Paneer / Dal Makhani), Dum Biryani, 2 Tandoori Breads, Raita, Salad, and Hot Saffron Gulab Jamun.
+          </p>
+          <div style="font-size: 1.35rem; font-weight: 700; color: var(--gold-primary); margin-bottom: 1.5rem;">
+            ₹399 per person <span style="font-size: 0.95rem; font-weight: 400; color: var(--text-muted);">| Unlimited Breads & Rice Refills</span>
+          </div>
+          <a href="reservations.html" class="btn btn-primary">Book Table for Royal Thali</a>
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" alt="Ajit Royal Thali" style="width: 100%; aspect-ratio: 16/10; object-fit: cover;">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       DISH DETAILS POPUP MODAL
+       ====================================================================== -->
+  <div id="dishDetailModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-box" style="max-width: 740px; padding: 2.5rem;">
+      <button class="modal-close-btn" style="position: absolute; top: 1.25rem; right: 1.25rem; font-size: 1.75rem; color: var(--text-muted);" aria-label="Close modal">&times;</button>
+      <div class="dish-modal-body">
+        <img id="modalDishImg" src="" alt="" class="dish-modal-img">
+        <div class="dish-modal-info">
+          <span class="sub-title no-after" style="margin-bottom: 0.5rem;">Dish Information</span>
+          <h3 id="modalDishTitle">-</h3>
+          <div id="modalDishPrice" class="dish-modal-price">-</div>
+          <p id="modalDishDesc" style="font-size: 0.95rem; line-height: 1.6;">-</p>
+
+          <div class="dish-modal-section">
+            <h5>Dietary Type</h5>
+            <p id="modalDishType" style="font-size: 0.9rem; color: #FFFFFF; font-weight: 600;">-</p>
+          </div>
+
+          <div class="dish-modal-section">
+            <h5>Spice Level</h5>
+            <p id="modalDishSpice" style="font-size: 0.88rem; color: var(--gold-light);">-</p>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <button id="modalAddOrderBtn" class="btn btn-primary" style="width: 100%;">
+              🛒 Add to Order Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       SITE FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <span class="brand-name">AJIT RESTAURANT</span>
+            <span class="brand-tagline">Taste That Brings Everyone Together</span>
+          </div>
+          <p>Dedicated to authentic royal flavors, fresh tandoor breads, 24-hour simmered curries, and warm family hospitality.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Ajit Restaurant</a>
+            <a href="menu.html">Food Menu & Order (₹)</a>
+            <a href="track.html">Track Order</a>
+            <a href="reservations.html">Book a Table</a>
+            <a href="contact.html">Contact & FAQ</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Hours of Service</h4>
+          <div class="footer-hours-list">
+            <div class="hours-row"><span>Mon – Sun</span><span>11:30 AM – 11:00 PM</span></div>
+            <div class="hours-row"><span>Buffet Lunch</span><span>12:00 PM – 3:30 PM</span></div>
+          </div>
+        </div>
+        <div class="footer-col footer-newsletter">
+          <h4>Ajit Club Updates</h4>
+          <p>Subscribe for festive discounts and weekend special dishes.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required aria-label="Newsletter email">
+            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AJIT RESTAURANT. All rights reserved. "Taste That Brings Everyone Together."</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/restaurant-data.js"></script>
+  <script src="js/payment-gateway.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

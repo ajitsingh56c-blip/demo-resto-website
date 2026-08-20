@@ -1,0 +1,164 @@
+/* ==========================================================================
+   AJIT RESTAURANT — CINEMATIC BRAND INTRO ANIMATION STYLES
+   ========================================================================== */
+
+.brand-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: #060709;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-intro-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+/* Background Atmosphere Glow */
+.intro-glow-circle {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.28) 0%, rgba(122, 29, 43, 0.15) 45%, transparent 70%);
+  filter: blur(50px);
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.9; }
+}
+
+/* Container */
+.intro-content-box {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 720px;
+}
+
+/* Brand Emblem */
+.intro-emblem {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  background: rgba(20, 22, 26, 0.85);
+  box-shadow: 0 0 30px rgba(197, 160, 89, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light, #E0C184);
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  animation: introEmblemFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@keyframes introEmblemFade {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Brand Title */
+.intro-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(25px);
+  animation: introTextFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
+}
+
+.intro-title span {
+  color: var(--gold-primary, #C5A059);
+}
+
+/* Gold Divider Line */
+.intro-divider {
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary, #C5A059), transparent);
+  margin: 0 auto 1.25rem;
+  animation: introLineWidth 1.2s ease 1s forwards;
+}
+
+@keyframes introLineWidth {
+  to { width: 180px; }
+}
+
+/* Tagline */
+.intro-tagline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.88);
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: introTextFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+@keyframes introTextFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skip Intro Button */
+.intro-skip-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  opacity: 0;
+  animation: introSkipFade 0.8s ease 1s forwards;
+}
+
+@keyframes introSkipFade {
+  to { opacity: 1; }
+}
+
+.intro-skip-btn:hover {
+  background: var(--gold-primary, #C5A059);
+  color: #0B0C0E;
+  border-color: var(--gold-primary, #C5A059);
+  transform: translateY(-1px);
+}
